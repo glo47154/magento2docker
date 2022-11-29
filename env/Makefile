@@ -44,8 +44,6 @@ logs-db:
 	docker logs -f magento2db
 logs-elastic:
 	docker logs -f magento2elastic
-logs-elastic5:
-	docker logs -f magento2elastic5
 logs-elastic6:
 	docker logs -f magento2elastic6
 add-host:
@@ -132,16 +130,6 @@ elastic:
 	cd additional/elasticsearch && docker-compose up -d && cd -
 elastic-stop:
 	cd additional/elasticsearch && docker-compose stop && cd -
-elastic5:
-	cd additional/elasticsearch5 && docker-compose up -d && cd -
-	cd additional/elasticsearch5/kibana && docker-compose up -d && cd -
-	# Web interface:
-	# http://127.0.0.1:9205
-	# Kibana Web Interface
-	# http://127.0.0.1:5601
-elastic5-stop:
-	cd additional/elasticsearch5 && docker-compose stop && cd -
-	cd additional/elasticsearch5/kibana && docker-compose stop && cd -
 elastic6:
 	cd additional/elasticsearch6 && docker-compose up -d && cd -
 	# Web interface:

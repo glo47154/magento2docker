@@ -80,6 +80,11 @@ ifeq ($(mutagenSession),)
 	--ignore=/.docker \
 	--ignore=/.github \
 	--ignore-vcs \
+	--ignore=/**/var/cache \
+	--ignore=/**/var/page_cache \
+	--ignore=/**/var/session \
+	--ignore=/**/var/log \
+	--ignore=/**/.DS_Store \
 	--symlink-mode=posix-raw \
 	$(SRC_DIR) \
 	docker://magento@magento2web/var/www/html/

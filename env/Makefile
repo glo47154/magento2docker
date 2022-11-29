@@ -69,7 +69,7 @@ umount-sshfs:
 	umount -f $(SRC_DIR)
 mount-mutagen:
 ifeq ($(mutagenSession),)
-	mutagen create --name=magento2web \
+	mutagen sync create --name=magento2web \
 	--default-group-beta=magento \
 	--default-owner-beta=magento \
 	--sync-mode=two-way-resolved \
@@ -85,10 +85,10 @@ ifeq ($(mutagenSession),)
 	docker://magento@magento2web/var/www/html/
 else
 	@echo "Mutagen magento2web session exits, resuming"
-	mutagen resume magento2web
+	mutagen sync resume magento2web
 endif
 umount-mutagen:
-	mutagen pause magento2web
+	mutagen sync pause magento2web
 mount:
 ifeq "$(FS_MOUNT_TYPE)" "sshfs"
 	make mount-sshfs

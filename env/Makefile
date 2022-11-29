@@ -42,8 +42,6 @@ logs:
 	docker logs -f magento2web
 logs-db:
 	docker logs -f magento2db
-logs-elastic6:
-	docker logs -f magento2elastic6
 add-host:
 	echo "127.0.0.1 $(host)" | sudo tee -a /etc/hosts
 	cp etc/apache/vhost.conf.example etc/apache/$(host).conf
@@ -126,17 +124,21 @@ elastic6:
 	cd additional/elasticsearch6 && docker-compose up -d && cd -
 	# Web interface:
 	# http://127.0.0.1:9206
+logs-elastic6:
+	docker logs -f magento2elastic6
 elastic6-stop:
 	cd additional/elasticsearch6 && docker-compose stop && cd -
 elastic7:
 	cd additional/elasticsearch7 && docker-compose up -d && cd -
 	# Web interface:
 	# http://127.0.0.1:9207
+logs-elastic7:
+	docker logs -f magento2elastic7
+elastic7-stop:
+	cd additional/elasticsearch7 && docker-compose stop && cd -
 selenium:
 	cd additional/selenium && docker-compose up -d && cd -
 	# VNC open vnc://:secret@127.0.0.1:5900
-elastic7-stop:
-	cd additional/elasticsearch7 && docker-compose stop && cd -	
 mailcatcher:
 	cd additional/mailcatcher && docker-compose up -d && cd -
 	# Management Console:

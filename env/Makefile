@@ -14,14 +14,10 @@ stop:
 	docker-compose stop
 build:
 	docker-compose build --build-arg CACHEBUST=`date +%s`
-up71: php71 build up
 up72: php72 build up
 up73: php73 build up
 up74: php74 build up
 up80: php80 build up
-php71:
-	$(info ""=====Buildng container with php 7.1"=====")
-	$(shell yes | cp etc/php/7.1/Dockerfile .)
 php72:
 	$(info ""=====Buildng container with php 7.2"=====")
 	$(shell yes | cp etc/php/7.2/Dockerfile .)

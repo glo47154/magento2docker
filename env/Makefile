@@ -42,8 +42,6 @@ logs:
 	docker logs -f magento2web
 logs-db:
 	docker logs -f magento2db
-logs-elastic:
-	docker logs -f magento2elastic
 logs-elastic6:
 	docker logs -f magento2elastic6
 add-host:
@@ -124,12 +122,6 @@ magento-console:
 	docker exec -it magento2web n98-magerun2 dev:console
 
 #Additional Containers
-elastic:
-	# Web interface:
-	# http://127.0.0.1:9200
-	cd additional/elasticsearch && docker-compose up -d && cd -
-elastic-stop:
-	cd additional/elasticsearch && docker-compose stop && cd -
 elastic6:
 	cd additional/elasticsearch6 && docker-compose up -d && cd -
 	# Web interface:

@@ -66,7 +66,7 @@ remove-host:
 
 dev: up mount
 dev-stop: umount stop
-all: up elastic6 mailcatcher solr
+all: up elastic6 mailcatcher
 
 phpstorm:
 	xhost + 127.0.0.1
@@ -137,10 +137,6 @@ selenium:
 	# VNC open vnc://:secret@127.0.0.1:5900
 elastic7-stop:
 	cd additional/elasticsearch7 && docker-compose stop && cd -	
-solr:
-	cd additional/solr36 && docker-compose up -d && cd -
-solr-stop:
-	cd additional/solr36 && docker-compose stop && cd -
 mailcatcher:
 	cd additional/mailcatcher && docker-compose up -d && cd -
 	# Management Console:
